@@ -1,0 +1,10 @@
+<view class='title'>formId页</view>
+
+<!-- 查询form_id有效的用户 -->
+<block wx:for="{{Res}}" wx:key="">
+  <view class='base'>
+    <image class='avatar' src='{{item.avatar_url}}'></image>
+    <view class='nick-name'>{{item.nick_name}}</view>
+    <!-- <view>formId剩余时间</view> -->
+  </view>
+</block>

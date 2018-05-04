@@ -1,0 +1,20 @@
+.title {
+  padding: 100rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.base{
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  padding: 20rpx;
+}
+
+.avatar {
+  height: 66rpx;
+  width: 66rpx;
+  border-radius: 50%;
+}

@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/formid/index",
+    "pages/login/login"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "WeChat",
+    "onReachBottomDistance": 0,
+    "navigationStyle": "custom"
+  }
+}

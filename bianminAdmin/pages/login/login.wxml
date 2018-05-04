@@ -1,0 +1,15 @@
+<view class="title">登陆</view>
+
+<form bindsubmit='tijiao_'>
+  <view class='zhanghao'>
+    <text>账号：</text>
+    <input name="zhanghao"></input>
+  </view>
+
+  <view class='mima'>
+    <text>密码：</text>
+    <input name="mima"></input>
+  </view>
+
+  <button form-type='submit'>提交</button>
+</form>

@@ -1,0 +1,21 @@
+page {
+  background-color: #fff;
+}
+
+.title {
+  text-align: center;
+  padding: 200rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.zhanghao {
+  display: flex;
+  padding: 10rpx;
+}
+
+.mima {
+  display: flex;
+  padding: 10rpx;
+}
+/* pages/login/login.wxss */

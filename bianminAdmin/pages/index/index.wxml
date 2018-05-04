@@ -1,0 +1,109 @@
+<!-- 路径 -->
+<view class='title'>
+  <navigator url='/pages/formid/index'>
+    <view class='formid'>formId管理</view>
+  </navigator>
+</view>
+
+<!-- 信息列表 -->
+<block wx:for="{{Res}}" wx:key="" wx:for-index="resindex">
+  <view class='base' data-index='{{resindex}}' catchtap="flodFn_">
+
+    <!-- 头像 -->
+    <view class='user'>
+      <text class='leibie'>{{item.leibie}}</text>
+
+      <view class='user-1' catchtap='qwe'>
+        <image class='avatar' src='{{item.avatar_url}}'></image>
+        <view class='name-time'>
+          <view class='nick-name'>{{item.nick_name}}</view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 信息 -->
+    <view class='xinxi'>
+
+      <!-- 内容 -->
+      <view class="{{item.hid ?'':'flod' }}">
+        <!-- id用于获取内容实际高度 -->
+        <text style='color: #2c2c2c;'>{{item.neirong}}</text>
+      </view>
+
+      <!-- 开展提示 -->
+      <view class='xinxi-tishi'>
+        <text wx:if="{{item.hid == false}}" class="iconfont icon-zhankai"></text>
+        <text wx:else class="iconfont icon-zhankai .touming"></text>
+      </view>
+
+      <!-- 配图 -->
+      <block wx:if="{{item.hid == true}}">
+        <view class='img-view'>
+          <block wx:for="{{item.with_img}}" wx:for-item="img" wx:key="">
+            <image class='img' src="{{img.url}}" data-img='{{item.with_img}}' data-index='{{index}}' lazy-load mode='aspectFill' />
+          </block>
+        </view>
+      </block>
+
+      <!-- 地址 -->
+      <view class='dizhi'>
+        <!-- <text class='iconfont icon-dizhi' /> -->
+        <text data-longitude='{{item.longitude}}' data-latitude='{{item.latitude}}' data-address='{{item.address}}'>{{item.address}}</text>
+      </view>
+
+    </view>
+
+
+    <block wx:if="{{item.hid == true}}">
+      <!-- 脚部按钮栏 -->
+      <view class='info'>
+        <!-- 浏览量 -->
+        <view class='liulangcishu'>
+          <text class='iconfont icon-yueduliang' />
+          <text> {{item.liulangcishu}}</text>
+        </view>
+
+        <!-- 电话 -->
+        <view class='dianhua' id='{{item.phone}}'>
+          <text class='iconfont icon-phone' />
+          <text> 电话</text>
+        </view>
+
+        <!-- 留言弹窗事件携带信息ID -->
+        <view class='liuyananniu'>
+          <text class='iconfont icon-liuyan' />
+          <text catchtap='deleteXinxi_' id='{{item.id}}'> 删除</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 留言回复块 -->
+    <block wx:if="{{item.with_liuyan.length > 0}}">
+      <view class='liuyan-base'>
+        <block wx:for="{{item.with_liuyan}}" wx:for-item="liuyan" wx:key="">
+          <view class='liuyan'>
+
+            <view>
+              <text style='color: #007aff;'>{{liuyan.nick_name}}</text>
+              <text>：{{liuyan.neirong}}</text>
+            </view>
+
+            <!-- 二级回复 -->
+            <view class='liuyan-huifu'>
+              <block wx:for="{{liuyan.liuyanwith_huifu}}" wx:for-item="huifu" wx:key="">
+                <view>
+                  <text style='color: #007aff;'>{{huifu.user}}</text>
+                  <text style='color: #808080;'> 回复 </text>
+                  <text style='color: #007aff;'>{{huifu.hf_user}}</text>
+                  <text>：{{huifu.neirong}}</text>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+
+  </view>
+</block>
